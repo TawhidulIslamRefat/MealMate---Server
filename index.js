@@ -23,11 +23,11 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect();
+    // await client.connect();
     const db = client.db("MealMate");
     const foodCollection = db.collection("foods");
 
-    // products API
+    // foods API
     app.get("/foods", async (req, res) => {
       const search = req.query.search;
       const sort = req.query.sort;
@@ -78,7 +78,7 @@ async function run() {
       res.send(result);
     });
 
-    await client.db("admin").command({ ping: 1 });
+    // await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
